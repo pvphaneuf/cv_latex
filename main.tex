@@ -1,0 +1,150 @@
+\documentclass[10pt]{article}
+
+%% Define some new colors
+\usepackage{xcolor}
+\definecolor{mBlue}{RGB}{51, 77, 167}
+\newcommand{\blue}[1]{{\color{mBlue}#1}}
+
+%% Page and text formatting
+\usepackage[left=1.0in, right=1.0in, top=1.0in, bottom=1.0in]{geometry} % margins
+\usepackage{setspace}
+\singlespacing % No more than 6 lines of text per inch
+\usepackage{amsmath, amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+% \usepackage{lmodern}
+
+%% Make the sections start with (a), (b), etc.
+\renewcommand\thesection{(\alph{section})}
+\renewcommand\thesubsection{(\alph{subsection})}
+
+%% Set up footer
+\usepackage{fancyhdr}
+\fancypagestyle{CVfooter}
+{
+ \lhead{}
+ \chead{}
+ \rhead{}
+ \lfoot{\sffamily\helvet\small{Patrick V.\ Phaneuf}}
+ \cfoot{\sffamily\helvet\small{\today}}
+ \rfoot{\sffamily\helvet\small{\thepage/2}}
+ \renewcommand{\headrulewidth}{0.0pt}
+ \renewcommand{\footrulewidth}{0.5pt}
+}
+
+%% Set up hyperlinks
+\usepackage[linktoc=page]{hyperref}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = mBlue,
+  citecolor = mBlue,
+  linkcolor = mBlue,
+}
+
+%% Set up citations and bibliography
+\usepackage{bibunits}
+\usepackage[sort&compress,super]{natbib}
+\defaultbibliographystyle{apsrev4-2}
+\setcitestyle{comma}
+\setlength{\bibsep}{0pt}
+\renewcommand{\bibnumfmt}[1]{\ \ \ #1.}
+\renewcommand\refname{\vspace{-7mm}}
+
+%% This allows us to start a bibliography with arbitrary number
+\usepackage{etoolbox}
+\makeatletter
+\newcommand*{\newbibstartnumber}[1]{%
+  \apptocmd{\thebibliography}{%
+    \global\c@NAT@ctr #1\relax
+    \addtocounter{NAT@ctr}{-1}%
+  }{}{}%
+}
+\makeatother
+
+%% Reduce whitespace around lists (globally)
+\usepackage{enumitem}
+\setlist[itemize]{nosep,left=0pt}
+\setlist[enumerate]{nosep}
+\setlist[description]{nosep}
+
+%% Formatting for sections
+\usepackage[compact]{titlesec}
+\titleformat*{\section}{\normalsize\bfseries}
+\titlespacing*{\section}{0mm}{2mm}{1mm}[0mm] % left top bottom right
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titlespacing*{\subsection}{0mm}{2mm}{1mm}[0mm]
+\titleformat*{\subsubsection}{\normalsize\bfseries\itshape}
+\titlespacing*{\subsubsection}{0mm}{1mm}{0mm}[0mm]
+
+\begin{document}
+\pagestyle{CVfooter}
+
+{\fontfamily{phv}\selectfont{
+
+% \noindent\textbf{\uppercase{curriculum vitae}}
+% \vspace{2mm}
+\noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
+% \noindent\textbf{Patrick V.\ Phaneuf} & CV updates: \href{www.patrickphaneuf.com}{patrickphaneuf.com}  \\
+\noindent\textbf{Patrick V.\ Phaneuf} & \href{https://github.com/pvphaneuf/cv/blob/main/PatrickPhaneufCV.pdf}{Curriculum Vitae}  \\
+% \noindent\textbf{Patrick V.\ Phaneuf}\\
+% \vspace{1mm}
+% \noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
+Ph.D. Candidate & Bioinformatics and Systems Biology  \\
+University of California, San Diego & Email: \href{mailto:pphaneuf@eng.ucsd.edu}{pphaneuf@eng.ucsd.edu} \\
+9500 Gilman Drive, Dept. 0419 & Phone: 458-207-1025\\
+La Jolla, CA 92093-0419  & Canadian Citizen, US Legal Permanent Resident\\
+\hline
+\end{tabular*}
+
+\section*{OBJECTIVE}
+Genome engineering using both rational and data-driven methods.
+
+\section*{EDUCATION AND TRAINING}
+Ph.D. Bioinformatics and Systems Biology, \textit{expected} 2021, University of California, San Diego, CA \\
+M.Sc. Computer Science, 2016, University of California, San Diego, CA \\
+B.Sc. Computer Engineering, \textit{cum laude}, 2009, Mercer University, Macon, GA
+% \begin{tabular}{l l l}
+% Ph.D. Bioinformatics and Systems Biology &\textit{expected} 2021 &University of California, San Diego, CA \\
+% M.Sc. Computer Science &2016 &University of California, San Diego, CA \\
+% B.Sc. Computer Engineering, \textit{cum laude}, &2009 &Mercer University, Macon, GA \\
+% \end{tabular}
+\section*{SKILLS}
+\begin{itemize}
+\item\textbf{Bioinformatics}: Big Biological Data, Next Generation Sequencing, Alignment, Ensemble Pipelining, Read Trimming and Filtering, Mutation Calling, Assembly, Genome Annotation, Multiomics, Structural, and Network Biology.
+\item\textbf{Data Science}: Statistics, Machine Learning, Graph Theory, Interactive Notebooks, Data Analytics and Visualization, Data Cleaning and Curation.
+\item\textbf{Bioengineering and Biotechnology}: Adaptive Laboratory Evolution, Strain Design, Lab Automation, Flow Cytometry, Microfluidics
+\item\textbf{Software Engineering}: Version Control, Test Driven Development, Continuous Integration and Deployment, Linting, Test Coverage, Static and Dynamic Analysis, Multithreaded, Multiprocess, TCP/IP.
+\item\textbf{Programming}: C, C++, C\#, Python, R, Java, Javascript, SQL.
+\item\textbf{High Performance Computing}: Cloud Compute and Storage, Containerization, Batch Processing.
+\item\textbf{Web Development}: Full-Stack, Linux, Up Time Alerts, Web Analytics.
+\item\textbf{Embedded}: Firmware, Oscilloscope Logic Analysis, In-Circuit Emulator Debugging, Soldering, Serial Communication, Robotics, Computer Vision
+\item\textbf{Communication}: Scientific Publication, Standard Operating Procedures, Scientific and Business Presentations, Project Definition and Timeline, Team Organization and Task Assignment, English, French.
+\item\textbf{Project Management}: Waterfall, Verification and Validation, Agile, Scrum, Quality Control and Assurance, Bug Tracking, Code Review, Requirements Analysis and Specifications, Feasibility and Merit Analysis, Root Cause Analysis, Milestone Roadmap, Product Lifecycle, Remote Workplace.
+\end{itemize}
+
+\section*{RESEARCH AND PROFESSIONAL EXPERIENCE}
+\textbf{Systems Biology Research Group}, Ph.D. candidate advised by Dr. Adam Feist, 2014 -- present
+\begin{itemize}
+\item\textbf{Genome engineering using consolidated Adaptive Laboratory Evolution data} \\
+Designed application-focused sequence changes to the \textit{E. coli} K-12 genome using a novel multi-dimensional adaptive laboratory evolution dataset, a graph-based genome annotation engine, and structural biology tools.
+\item\textbf{Graph-based genome annotation engine and mutation enrichment} \\
+Applied enrichment methods to mutations described by a novel multi-scale annotation framework and a consolidated set of experimental evolution conditions to automate key mutation identification and to deconvolute mutation selection pressures.
+\item\textbf{Web-accessible experimental evolution mutation and conditions database} \\
+Developed first version of a web-accessible database consolidating mutations from experiments executed by researchers across the field of experimental evolution. Managed further development and maintenance by a team of full-time software engineers.
+\item\textbf{Ensemble mutation calling pipeline} \\
+Developed initial versions of mutation calling pipeline used by scientific research institution and managed further development and maintenance by a team of full-time software engineers.
+\end{itemize}
+\vspace{1mm}
+\textbf{Thermo Fisher Scientific}, Software and Firmware Engineer, 2010 -- 2014 \\
+Developed system control software and firmware for the Attune® Acoustic Focusing Cytometer and Attune® Autosampler projects. Experience the complete product life-cycle for both a software and hardware product through a combination of the first and second iteration of the Attune®.
+
+\section*{PUBLICATIONS}
+\vspace{2mm}
+\begin{bibunit}
+\nocite{apsrev42Control}
+\nocite{Phaneuf2020-ql-,Phaneuf2019-to,Rychel2020-vi,Lamoureux2020-so,Sandberg2020-gr,Heckmann2020-ia,Du2020-od,Anand2019-yy,Lloyd2019-sn,Anand2019-et,Guzman2018-wp,Pekar2018-dr,Yang2019-eb,Mundhada2017-rv}
+\putbib[publications]
+\end{bibunit}
+}
+\end{document}
